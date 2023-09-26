@@ -1,21 +1,17 @@
 import CartWidget from '../CartWiget/CartWidget';
 import './Nabvar.css';
-import { AppBar, Button, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Toolbar, Link} from '@mui/material';
 
 const Navbar = () => {
     return (
     <AppBar>
         <Toolbar sx={{display: 'flex',justifyContent: 'space-around' }}>
-            <Typography sx={{color:'black'}}>Pizzeria</Typography>
-            <Button sx={{color:'white'}}>
-                Home
-            </Button>
-            <Button sx={{color:'white'}}>
+            <Link sx={{color:'black'}} href='/'>
+            Pizzeria
+            </Link>
+            <Link sx={{color:'white'}} href='/categories'>
                 Categorias
-            </Button>
-            <Button sx={{color:'white'}}>
-                Productos
-            </Button>
+            </Link>
             <CartWidget/>
         </Toolbar>
     </AppBar>

@@ -1,13 +1,30 @@
-import PropTypes from 'prop-types';
+import { CircularProgress, Grid, Typography } from '@mui/material';
+import useAsyncMock from '../../hooks/useAsyncMock.jsx';
+import products from '../../mocks/menu.json';
+import Product from '../Product/Product';
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({ greeting }) => {
+function ItemListContainer() {
+    let {data, loading}= useAsyncMock(products);
+    const{id} = useParams()
+    if(loading) return <CircularProgress />
+    
+    if(id){
+      data = data.filter(product => product.categoria === id)
+    }
+
   return (
-    <div><h1>{greeting}</h1></div>
-  );
+    <div className='container'>
+        <Typography variant={'h2'}>Menu</Typography>
+        <Grid container spacing={3}>
+            {
+                data.map(product =>{
+                    return <Product key={product.id} product={product} />
+                })
+            }
+        </Grid>
+    </div>
+  )
 }
-
-ItemListContainer.propTypes = {
-  greeting: PropTypes.string.isRequired,
-};
 
 export default ItemListContainer;

@@ -2,10 +2,10 @@ import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 
 const CartWidget = () => {
   return (
-    <>
-        <ShoppingCartRoundedIcon/>
+    <div>
+        <ShoppingCartRoundedIcon />
         <span>(0)</span>
-    </>
+    </div>
   )
 }
 
